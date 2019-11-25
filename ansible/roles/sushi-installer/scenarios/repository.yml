@@ -62,17 +62,3 @@
     - "{{ go_path }}/src/github.com/opensds/nbp/csi/server/deploy"
     - "{{ go_path }}/src/github.com/opensds/nbp/csi/server/examples"
 
-- name: copy sushi flexvolume binary file into sushi work directory
-  copy:
-    src: "{{ go_path }}/src/github.com/opensds/nbp/.output/flexvolume.server.opensds"
-    dest: "{{ sushi_work_dir }}/flexvolume/opensds"
-    mode: 0755
-
-- name: copy sushi provisioner deploy scripts into sushi work directory
-  copy:
-    src: "{{ item }}"
-    dest: "{{ sushi_work_dir }}/provisioner/"
-    directory_mode: yes
-  with_items:
-    - "{{ go_path }}/src/github.com/opensds/nbp/opensds-provisioner/deploy"
-    - "{{ go_path }}/src/github.com/opensds/nbp/opensds-provisioner/examples"
